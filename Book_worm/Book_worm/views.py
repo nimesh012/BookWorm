@@ -3,13 +3,16 @@ from django.shortcuts import render
 import pickle
 import pandas as pd
 import numpy as np
+import os
 import requests
 from random import sample
+#gunicorn Book_worm.wsgi:application
 
-popular_df = pd.read_csv('Book_worm\popular.csv')
-books = pd.read_csv('Book_worm\Books.csv')
+popular_df = pd.read_csv('../static/csv/popular.csv')
+print(os.getcwd())
+books = pd.read_csv('../static/csv/Books.csv')
 cs = pickle.load(open('cs.pkl', 'rb'))
-pt = pd.read_csv('Book_worm\pt.csv')
+pt = pd.read_csv('../static/csv/pt.csv')
 
 
 def popular(df):
