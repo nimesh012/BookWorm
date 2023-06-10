@@ -8,11 +8,11 @@ import requests
 from random import sample
 #gunicorn Book_worm.wsgi:application
 
-popular_df = pd.read_csv('../static/csv/popular.csv')
+popular_df = pd.read_csv('Book_worm/popular.csv')
 print(os.getcwd())
-books = pd.read_csv('../static/csv/Books.csv')
+books = pd.read_csv('Book_worm/Books.csv')
 cs = pickle.load(open('cs.pkl', 'rb'))
-pt = pd.read_csv('../static/csv/pt.csv')
+pt = pd.read_csv('Book_worm/pt.csv')
 
 
 def popular(df):
