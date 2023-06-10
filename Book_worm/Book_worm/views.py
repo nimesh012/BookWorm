@@ -7,9 +7,9 @@ import requests
 from random import sample
 
 popular_df = pd.read_csv('Book_worm\\popular.csv')
-books = pd.read_csv('Book_worm\\Books.csv')
-pt = pickle.load(open('pt.pkl', 'rb'))
+books = pd.read_csv('Book_worm\\books.csv')
 cs = pickle.load(open('cs.pkl', 'rb'))
+pt = pd.read_csv('Book_worm\\pt.csv')
 
 
 def popular(df):
