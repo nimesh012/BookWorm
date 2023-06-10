@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-45chtk8=n191nkstkrmm4bhero8v5v16+4mw$)-7*w0q(dy7zf
 DEBUG = False
 
 
-ALLOWED_HOSTS = ["https://book-worms-heaven.onrender.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -119,6 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     BASE_DIR / "static"]
 
