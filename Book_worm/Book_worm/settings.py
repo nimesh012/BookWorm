@@ -13,7 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import os
+import mimetypes
 
+mimetypes.add_type("text/javascript", ".js", True)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
