@@ -1,18 +1,18 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-import pickle
-import pandas as pd
-import numpy as np
 import os
-import requests
-from random import sample
+import pickle
+
+import numpy as np
+import pandas as pd
+from django.shortcuts import render
+
 #gunicorn Book_worm.wsgi:application
 
 popular_df = pd.read_csv('Book_worm/popular.csv')
 print(os.getcwd())
-books = pd.read_csv('Book_worm/Books.csv')
+books = pd.read_csv('Book_worm/Books.csv', low_memory=False)
 cs = pickle.load(open('cs.pkl', 'rb'))
 pt = pd.read_csv('Book_worm/pt.csv')
+pt.set_index("Book-Title", inplace=True)
 
 
 def popular(df):
@@ -41,7 +41,7 @@ def recommend(request):
 
 def recommend_book(book_name):
     pointer = False
-
+    print(book_name)
     book_d = []
     if book_name not in pt.index:
         for i in range(0, popular_df.shape[0]):
@@ -61,6 +61,7 @@ def recommend_book(book_name):
                     'Year': list(books[books['Book-Title'] == pt.index[i[0]]]['Year-Of-Publication'].values)[0],
                     'Image': list(books[books['Book-Title'] == pt.index[i[0]]]['Image-URL-L'].values)[0]}
             book_data.append(data)
+
         return book_data, pointer
 
 
